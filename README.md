@@ -29,11 +29,9 @@ When someone deletes a file on Windows, the filename often remains in the Regist
 ```bash
 python recentdocs_analyzer.py -f NTUSER.DAT -m \$MFT -o report.csv
 
-🗺️ MITRE ATT&CK Vectors
-Technique	ID	How It Applies
-T1005/Data from Local System - Proving access to sensitive files
-T1070.004/Indicator Removal File Deletion -	Detecting cover-up attempts
-TA0009/Collection	- Identifying data gathering activities
-
-Key Limitation:
-Only filenames, not full paths - You'll know WHAT file was accessed, but not exactly WHERE it was located.
+MITRE ATT&CK Mapping
+Scenario	MITRE Technique	How This Tool Helps
+Insider Threat	T1005 - Data from Local System	Proves employee accessed confidential files before resigning
+Cover-up Investigation	T1070.004 - Indicator Removal: File Deletion	Recovers filenames of files deleted to hide evidence
+Data Theft Investigation	TA0009 - Collection	Identifies what sensitive data was gathered before exfiltration
+Incident Response	T1005 + T1070.004	Shows what files attacker accessed AND deleted during breach
