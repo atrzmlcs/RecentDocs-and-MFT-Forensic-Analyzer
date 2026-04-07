@@ -28,7 +28,9 @@ When someone deletes a file on Windows, the filename often remains in the Regist
 **Command:**
 ```bash
 python recentdocs_analyzer.py -f NTUSER.DAT -m \$MFT -o report.csv
-```                           ← ADD THIS LINE (three backticks)
+```                          
+
+
 
 ## 🗺️ MITRE ATT&CK Mapping     
 
