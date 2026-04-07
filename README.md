@@ -1,0 +1,39 @@
+# 🔍 RecentDocs Forensic Analyzer
+
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://python.org)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![DFIR](https://img.shields.io/badge/DFIR-Forensics-red.svg)]()
+
+A digital forensics tool that **recovers evidence of deleted files** from Windows Registry RecentDocs keys.
+
+## 🎯 What It Does
+
+When someone deletes a file on Windows, the filename often remains in the Registry. This tool finds those traces and tells you:
+
+- **What** files were accessed
+- **When** they were accessed (or approximate timeframe)
+- **Whether** they've been deleted
+
+## 🚨 Real-World Use Cases
+
+| Scenario | How This Tool Helps |
+|----------|---------------------|
+| **Insider Threat** | Employee accessed confidential files before resigning, then deleted them |
+| **Data Theft** | Prove sensitive documents were opened before being wiped |
+| **Cover-up Investigation** | Recover evidence of deleted files after Recycle Bin was emptied |
+| **Incident Response** | Identify what files an attacker accessed during a breach |
+
+## 📊 Quick Example
+
+**Command:**
+```bash
+python recentdocs_analyzer.py -f NTUSER.DAT -m \$MFT -o report.csv
+
+🗺️ MITRE ATT&CK Vectors
+Technique	ID	How It Applies
+T1005/Data from Local System - Proving access to sensitive files
+T1070.004/Indicator Removal File Deletion -	Detecting cover-up attempts
+TA0009/Collection	- Identifying data gathering activities
+
+Key Limitation:
+Only filenames, not full paths - You'll know WHAT file was accessed, but not exactly WHERE it was located.
